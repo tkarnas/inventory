@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table">
+
+<a class="btn btn-primary mt-5" href="{{route('products.create')}}">Add new product</a>
+<table class="table mt-3">
     <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
@@ -10,6 +12,7 @@
             <th scope="col">IMEI</th>
             <th scope="col">Stock</th>
             <th scope="col">Price</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +24,12 @@
             <td>{{ $product->serial_number}}</td>
             <td>{{ $product->imei}}</td>
             <td>{{ $product->stock}}</td>
-            <td>{{ $product->price}}</td>
+            <td>{{ $product->price}} HRK</td>
+            <td>
+                <a class="btn btn-outline-dark" href="{{ route('products.show', ['product' => $product->id])}}">Details</a>
+                <a class="btn btn-outline-dark" href="{{ route('products.edit', ['product' => $product->id])}}">Edit</a>
+
+            </td>
         </tr>
         @endforeach
 

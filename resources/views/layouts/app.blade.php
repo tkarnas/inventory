@@ -22,16 +22,16 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
+                    <a class="nav-link" href="{{route('products.index')}}">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categories">Categories</a>
+                    <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/companies">Companies</a>
+                    <a class="nav-link" href="{{route('companies.index')}}">Companies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/brands">Brands</a>
+                    <a class="nav-link" href="{{route('brands.index')}}">Brands</a>
                 </li>
             </ul>
         </div>
