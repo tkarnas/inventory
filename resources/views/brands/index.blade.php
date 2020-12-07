@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table">
+<a class="btn btn-primary mt-5" href="{{route('brands.create')}}">Add new brand</a>
+<table class="table mt-3">
     <thead class="thead-dark">
         <tr>
             <th scope="col">id</th>
-            <th scope="col">Ime brenda</th>
+            <th scope="col">Brand name</th>
             <th scope="col">Action</th>
         </tr>
     </thead>

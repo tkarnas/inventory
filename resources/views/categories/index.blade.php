@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table">
+<a class="btn btn-primary mt-5" href="{{route('categories.create')}}">Add new Category</a>
+<table class="table mt-3">
     <thead class="thead-dark">
         <tr>
             <th scope="col">id</th>

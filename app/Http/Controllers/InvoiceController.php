@@ -15,7 +15,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoices = Invoice::paginate();
-        dd($invoices);
+        return view('invoices.index', compact('invoices'));
     }
 
     /**
@@ -47,7 +47,8 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $invoice = Invoice::findOrFail($id);
+        return view('invoices.show', compact('invoice'));
     }
 
     /**

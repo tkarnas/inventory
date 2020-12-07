@@ -15,7 +15,7 @@ class LoanController extends Controller
     public function index()
     {
         $loans = Loan::paginate();
-        dd($loans);
+        return view('loans.index', compact('loans'));
     }
 
     /**
@@ -47,7 +47,8 @@ class LoanController extends Controller
      */
     public function show($id)
     {
-        //
+        $loan = Loan::findOrFail($id);
+        return view('loans.show', compact('loan'));
     }
 
     /**
