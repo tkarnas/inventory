@@ -6,6 +6,7 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">Ime brenda</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +15,10 @@
         <tr>
             <td>{{ $brand->id }}</td>
             <td>{{ $brand->brand_name}}</td>
-
+            <td>
+                <a class="btn btn-outline-dark" href="{{ route('brands.show', ['brand' => $brand->id])}}">Details</a>
+                <a class="btn btn-outline-dark" href="{{ route('brands.edit', ['brand' => $brand->id])}}">Edit</a>
+            </td>
         </tr>
         @endforeach
 

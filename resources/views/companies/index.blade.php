@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table">
+<a class="btn btn-primary mt-5" href="{{route('companies.create')}}">Add new company</a>
+<table class="table mt-3">
     <thead class="thead-dark">
         <tr>
             <th scope="col">id</th>
-            <th scope="col">Ime kompanije koja je isporučila robu</th>
+            <th scope="col">Company name</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +16,10 @@
         <tr>
             <td>{{ $company->id }}</td>
             <td>{{ $company->company_name}}</td>
-
+            <td>
+                <a class="btn btn-outline-dark" href="{{ route('companies.show', ['company' => $company->id])}}">Details</a>
+                <a class="btn btn-outline-dark" href="{{ route('companies.edit', ['company' => $company->id])}}">Edit</a>
+            </td>
         </tr>
         @endforeach
 

@@ -28,7 +28,6 @@
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('products.show', ['product' => $product->id])}}">Details</a>
                 <a class="btn btn-outline-dark" href="{{ route('products.edit', ['product' => $product->id])}}">Edit</a>
-
             </td>
         </tr>
         @endforeach
