@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'product_name' => 'required|max:255',
+            'stock' => 'required',
+            'price' => '',
+            'image_url' => '',
+            'brand_id' => 'required',
+            'company_id' => '',
+            'category_id' => ''
+        ]);
+
+        $product = Product::create($validated);
+        return view('products.show', compact('product'));
     }
 
     /**

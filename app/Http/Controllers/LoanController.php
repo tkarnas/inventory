@@ -25,7 +25,7 @@ class LoanController extends Controller
      */
     public function create()
     {
-        //
+        return view('loans.create');
     }
 
     /**
@@ -36,7 +36,16 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'start_date_at' => 'required',
+            'end_date_at' => 'required',
+            'location' => '',
+            'user_id' => 'required',
+            'product_id' => 'required'
+        ]);
+
+        $loan = Loan::create($validated);
+        return view('loans.show', compact('loan'));
     }
 
     /**

@@ -10,8 +10,8 @@ class Loan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'start_date',
-        'end_date',
+        'start_date_at',
+        'end_date_at',
         'location',
         'user_id',
         'product_id'

@@ -1,22 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mt-7 col-sm-5 mx-auto">
-    <form action="{{ route('companies.store')}}" method="POST">
+<div class="col-sm-5 mx-auto">
+    <form class="pt-5" action="{{ route('loans.store')}}" method="POST">
         <!-- CSRF Token-->
         @csrf
         <!-- Brand name -->
 
         <div class="form-group">
-        <label for="name">Company name</label>
-        <input type="text" name="company_name" value="{{ @old('company_name') }}" class="form-control" id="name">
-        @if ($errors->has('company_name'))
-            <span class="text-danger">{{ $errors->first('company_name') }}</span>
+        <label for="start_date_at">Start date</label>
+        <input type="date" name="start_date_at" value="{{ @old('start_date_at') }}" class="form-control" id="start_date_at">
+        @if ($errors->has('start_date_at'))
+            <span class="text-danger">{{ $errors->first('start_date_at') }}</span>
         @endif
         </div>
 
+        <div class="form-group">
+        <label for="end_date_at">End date</label>
+        <input type="date" name="end_date_at" value="{{ @old('end_date_at') }}" class="form-control" id="end_date_at">
+        @if ($errors->has('end_date_at'))
+            <span class="text-danger">{{ $errors->first('end_date_at') }}</span>
+        @endif
+        </div>
+        <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" name="location" value="{{ @old('location') }}" class="form-control" id="location">
+        @if ($errors->has('location'))
+            <span class="text-danger">{{ $errors->first('location') }}</span>
+        @endif
+        </div>
+        <div class="form-group">
+        <label for="user_id">User ID</label>
+        <input type="number" name="user_id" value="{{ @old('user_id') }}" class="form-control" id="user_id">
+        @if ($errors->has('user_id'))
+            <span class="text-danger">{{ $errors->first('user_id') }}</span>
+        @endif
+        </div>
+        <div class="form-group">    
+        <label for="product_id">Product ID</label>
+        <input type="number" name="product_id" value="{{ @old('product_id') }}" class="form-control mb-5" id="product_id">
+        @if ($errors->has('product_id'))
+            <span class="text-danger">{{ $errors->first('product_id') }}</span>
+        @endif
+        </div>
+        <div class="form-group">
         <button type="submit" class="btn btn-primary float-right">Save</button>
-        <a href="{{ route('companies.index') }}" class="btn btn-link">Cancel</a>
+        <a href="{{ route('loans.index') }}" class="btn btn-link">Cancel</a>
+        </div>
     </form>
 </div>
 @endsection
