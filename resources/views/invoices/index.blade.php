@@ -22,9 +22,9 @@
             <td>{{ $invoice->id }}</td>
             <td>{{ $invoice->invoice_date_at }}</td>
             <td>{{ $invoice->quantity }}</td>
-            <td>{{ $invoice->price_total}}</td>
-            <td>{{ $invoice->company_id}}</td>
-            <td>{{ $invoice->product_id}}</td>
+            <td>{{ $invoice->product->price}}</td>
+            <td>{{ $invoice->company->company_name}}</td>
+            <td>{{ $invoice->product->product_name}}</td>
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('invoices.show', ['invoice' => $invoice->id])}}">Details</a>
                 <a class="btn btn-outline-dark" href="{{ route('invoices.edit', ['invoice' => $invoice->id])}}">Edit</a>

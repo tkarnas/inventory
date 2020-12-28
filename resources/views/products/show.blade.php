@@ -9,6 +9,8 @@
         <li>IMEI: {{$product->imei}}</li>
         <li>Stock: {{$product->stock}}</li>
         <li>Price: {{$product->price}} HRK</li>
+        <li>Brand: {{ $product->brand->brand_name }}</li>
+        <li>Category: {{ $product->category->category_name }}</li>
     </ul>
 
     <a href="{{route('products.index')}}" class="btn btn-outline-danger">Back to products</a>

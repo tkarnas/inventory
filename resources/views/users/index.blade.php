@@ -23,7 +23,7 @@
             <td>{{ $user->last_name}}</td>
             <td>{{ $user->email}}</td>
             <td>{{ $user->username}}</td>
-            <td>{{ $user->role_id}}</td>
+            <td>{{ $user->role->role_name}}</td>
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('users.show', ['user' => $user->id])}}">Details</a>
                 <a class="btn btn-outline-dark" href="{{ route('users.edit', ['user' => $user->id])}}">Edit</a>

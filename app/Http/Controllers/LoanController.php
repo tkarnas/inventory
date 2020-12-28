@@ -14,7 +14,7 @@ class LoanController extends Controller
      */
     public function index()
     {
-        $loans = Loan::paginate();
+        $loans = Loan::with(['user', 'product'])->paginate();
         return view('loans.index', compact('loans'));
     }
 

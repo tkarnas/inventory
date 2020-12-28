@@ -13,4 +13,6 @@ class Invoice extends Model
         'quantity',
         'price_total'
     ];
+    public function company() {return $this->belongsTo(Company::class);}
+    public function product() {return $this->belongsTo(Product::class);}
 }

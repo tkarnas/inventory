@@ -23,8 +23,8 @@
             <td>{{ $loan->start_date_at }}</td>
             <td>{{ $loan->end_date_at}}</td>
             <td>{{ $loan->location}}</td>
-            <td>{{ $loan->user_id}}</td>
-            <td>{{ $loan->product_id}}</td>
+            <td>{{ $loan->user->username}}</td>
+            <td>{{ $loan->product->product_name}}</td>
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('loans.show', ['loan' => $loan->id])}}">Details</a>
                 <a class="btn btn-outline-dark" href="{{ route('loans.edit', ['loan' => $loan->id])}}">Edit</a>
