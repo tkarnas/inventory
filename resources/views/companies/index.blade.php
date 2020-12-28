@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-primary mt-5" href="{{route('companies.create')}}">Add new company</a>
+<a class="btn btn-primary mt-5" href="{{route('companies.create')}}">Add new Company</a>
 <table class="table mt-3">
     <thead class="thead-dark">
         <tr>

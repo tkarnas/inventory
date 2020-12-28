@@ -7,6 +7,6 @@
         <li>Category name: {{$category->category_name}}</li>
     </ul>
 
-    <a href="{{route('companies.index')}}" class="btn btn-outline-danger">Back to categories</a>
+    <a href="{{route('categories.index')}}" class="btn btn-outline-danger">Back to categories</a>
 </div>
 @endsection

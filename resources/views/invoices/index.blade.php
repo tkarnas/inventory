@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a class="btn btn-primary mt-5" href="{{route('invoices.create')}}">Add new Loan</a>
+<a class="btn btn-primary mt-5" href="{{route('invoices.create')}}">Add new Invoice</a>
 <table class="table mt-3">
     <thead class="thead-dark">
         <tr>

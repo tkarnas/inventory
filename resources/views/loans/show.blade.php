@@ -2,15 +2,15 @@
 
 @section('content')
 <div>
-    <h3 class="mt-7">Product details</h3>
+    <h3 class="mt-7">Loan details</h3>
     <ul class="list-unstyled">
-        <li>Product name: {{$loan->start_date_at}} </li>
-        <li>Serial: {{$loan->end_date_at}}</li>
-        <li>IMEI: {{$loan->location}}</li>
-        <li>Stock: {{$loan->user_id}}</li>
-        <li>Price: {{$loan->product_id}} HRK</li>
+        <li>Start date: {{$loan->start_date_at}} </li>
+        <li>End date: {{$loan->end_date_at}}</li>
+        <li>Location: {{$loan->location}}</li>
+        <li>User: {{$loan->user_id}}</li>
+        <li>Products: {{$loan->product_id}}</li>
     </ul>
 
-    <a href="{{route('products.index')}}" class="btn btn-outline-danger">Back to products</a>
+    <a href="{{route('loans.index')}}" class="btn btn-outline-danger">Back to Loans</a>
 </div>
 @endsection
