@@ -7,7 +7,7 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Date</th>
+            <th scope="col">Created at</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price Total</th>
             <th scope="col">Comapny</th>

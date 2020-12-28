@@ -16,6 +16,7 @@ class InvoiceController extends Controller
     {
         $invoices = Invoice::with(['company', 'product'])->paginate();
         return view('invoices.index', compact('invoices'));
+
     }
 
     /**
@@ -25,7 +26,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('invoices.create');
     }
 
     /**
@@ -36,7 +37,16 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'quantity' => 'required',
+            'price_total' => '',
+            'company_id' => '',
+            'product_id' => ''
+        ]);
+
+
+        $invoice = Invoice::create($validated);
+        return view('invoices.show', compact('invoice'));
     }
 
     /**

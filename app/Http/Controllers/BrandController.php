@@ -25,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brands.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'brand_name' => 'required|unique:brands|max:50'
+        ]);
+
+
+        $brand = Brand::create($validated);
+        return view('brands.show', compact('brand'));
     }
 
     /**

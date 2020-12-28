@@ -15,10 +15,9 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('invoice_date_at');
+            $table->dateTime('invoice_date_at')->useCurrent();
             $table->integer('quantity');
             $table->integer('price_total')->nullable();
-
             $table->foreignId('company_id')->constrained();
             $table->foreignId('product_id')->constrained();
 

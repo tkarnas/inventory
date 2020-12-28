@@ -25,7 +25,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');//
     }
 
     /**
@@ -36,7 +36,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'company_name' => 'required|unique:companies|max:50'
+        ]);
+
+
+        $company = Company::create($validated);
+        return view('companies.show', compact('company'));
     }
 
     /**

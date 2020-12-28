@@ -13,7 +13,11 @@ class Product extends Model
         'product_name',
         'stock',
         'price',
-        'image_url'
+        'image_url',
+        'brand_id',
+        'company_id',
+        'category_id',
+
     ];
 
     public function loans() {return $this->hasMany(Loan::class);}

@@ -11,7 +11,9 @@ class Invoice extends Model
 
     protected $fillable = [
         'quantity',
-        'price_total'
+        'price_total',
+        'product_id',
+        'company_id'
     ];
     public function company() {return $this->belongsTo(Company::class);}
     public function product() {return $this->belongsTo(Product::class);}

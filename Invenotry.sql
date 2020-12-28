@@ -1,1 +1,1 @@
-SELECT * FROM inventory.loans;
+SELECT * FROM inventory.invoices;

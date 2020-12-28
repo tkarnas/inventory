@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'category_name' => 'required|unique:categories|max:50'
+        ]);
+
+
+        $category = Category::create($validated);
+        return view('categories.show', compact('category'));
     }
 
     /**
