@@ -69,7 +69,8 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $invoice = Invoice::findOrFail($id);
+        return view('invoices.edit', compact('invoice'));
     }
 
     /**
@@ -81,7 +82,18 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'quantity' => 'required',
+            'price_total' => '',
+            'company_id' => '',
+            'product_id' => ''
+        ]);
+
+        $invoice = Invoice::findOrFail($id);
+        $invoice->fill($validated);
+        $invoice->save();
+
+        return view('invoices.show', compact('invoice'));
     }
 
     /**

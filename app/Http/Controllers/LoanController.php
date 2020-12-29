@@ -68,7 +68,8 @@ class LoanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $loan = Loan::findOrFail($id);
+        return view('loans.edit', compact('loan'));
     }
 
     /**
@@ -80,7 +81,19 @@ class LoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'start_date_at' => 'required',
+            'end_date_at' => 'required',
+            'location' => '',
+            'user_id' => 'required',
+            'product_id' => 'required'
+        ]);
+
+        $loan = Loan::findOrFail($id);
+        $loan->fill($validated);
+        $loan->save();
+
+        return view('loans.show', compact('loan'));
     }
 
     /**

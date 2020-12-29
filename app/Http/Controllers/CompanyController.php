@@ -37,7 +37,9 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'company_name' => 'required|unique:companies|max:50'
+            'company_name' => 'required|unique:companies|max:50',
+            'Vat_number' => '',
+            'sector' => ''
         ]);
 
 
@@ -65,7 +67,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::findOrFail($id);
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -77,7 +80,17 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'company_name' => 'required|max:50',
+            'Vat_number' => '',
+            'sector' => ''
+        ]);
+
+        $company = Company::findOrFail($id);
+        $company->fill($validated);
+        $company->save();
+
+        return view('companies.show', compact('company'));
     }
 
     /**

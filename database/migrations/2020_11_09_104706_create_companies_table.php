@@ -16,7 +16,7 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('company_name', 50);
-            $table->integer('Vat_number')->nullable();
+            $table->integer('vat_number')->nullable();
             $table->string('sector', 50)->nullable();
 
             $table->timestamps();

@@ -1,1 +1,1 @@
-SELECT * FROM inventory.companies;
+SELECT * FROM inventory.roles;

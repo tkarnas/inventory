@@ -65,7 +65,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        return view('brands.edit', compact('brand'));
     }
 
     /**
@@ -77,7 +78,15 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'brand_name' => 'required|max:50'
+        ]);
+
+        $brand = Brand::findOrFail($id);
+        $brand->fill($validated);
+        $brand->save();
+
+        return view('brands.show', compact('brand'));
     }
 
     /**

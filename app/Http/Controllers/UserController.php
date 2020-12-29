@@ -69,7 +69,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -81,7 +82,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'username' => 'required|max:20',
+            'role_id' => ''
+        ]);
+        $user = User::findOrFail($id);
+        $user->fill($validated);
+        $user->save();
+
+        return view('users.show', compact('user'));
     }
 
     /**

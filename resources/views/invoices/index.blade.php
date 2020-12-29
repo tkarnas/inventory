@@ -10,7 +10,7 @@
             <th scope="col">Created at</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price Total</th>
-            <th scope="col">Comapny</th>
+            <th scope="col">Company</th>
             <th scope="col">Product</th>
             <th scope="col">Action</th>
         </tr>

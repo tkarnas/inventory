@@ -70,7 +70,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -82,7 +83,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'product_name' => 'required|max:255',
+            'stock' => 'required',
+            'price' => '',
+            'image_url' => '',
+            'brand_id' => 'required',
+            'company_id' => '',
+            'category_id' => '' 
+        ]);
+        $product = Product::findOrFail($id);
+        $product->fill($validated);
+        $product->save();
+
+        return view('products.show', compact('product'));
     }
 
     /**
