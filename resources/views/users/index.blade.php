@@ -27,6 +27,7 @@
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('users.show', ['user' => $user->id])}}">Details</a>
                 <a class="btn btn-outline-dark" href="{{ route('users.edit', ['user' => $user->id])}}">Edit</a>
+                <a class="btn btn-outline-danger" href="{{ route('change_password.edit', ['user' => $user->id])}}">Change password</a>
             </td>
         </tr>
         @endforeach

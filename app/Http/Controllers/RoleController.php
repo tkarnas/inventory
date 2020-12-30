@@ -15,7 +15,6 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::paginate();
-        dd($roles);
     }
 
     /**
@@ -48,7 +47,6 @@ class RoleController extends Controller
     public function show($id)
     {
         $roles = Role::findOrFail($id);
-        dd($roles);
     }
 
     /**

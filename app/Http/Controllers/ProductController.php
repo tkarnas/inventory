@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Company;
 
 class ProductController extends Controller
 {
@@ -71,7 +74,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('products.edit', compact('product'));
+        $brands = Brand::pluck('brand_name', 'id');
+        $categories = Category::pluck('category_name', 'id');
+        $companies = Company::pluck('company_name', 'id');
+        return view('products.edit', compact('product', 'brands' , 'categories', 'companies'));
     }
 
     /**

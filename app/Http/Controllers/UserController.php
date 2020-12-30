@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -57,7 +58,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('role')->findOrFail($id);  
         return view('users.show', compact('user'));
     }
 
@@ -70,7 +71,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('users.edit', compact('user'));
+        $roles = Role::pluck('role_name', 'id');
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**

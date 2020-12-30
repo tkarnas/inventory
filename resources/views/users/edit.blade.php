@@ -34,14 +34,6 @@
         </div>
         <div class="form-group">
 
-        <label for="pass">Password</label>
-        <input type="password" name="password" value="" class="form-control" id="pass">
-        @if ($errors->has('password'))
-            <span class="text-danger">{{ $errors->first('password') }}</span>
-        @endif
-        </div>
-        <div class="form-group">
-
         <label for="username">Username</label>
         <input type="text" name="username" value="{{ $user->username }}" class="form-control mb-5" id="username">
         @if ($errors->has('username'))
@@ -51,7 +43,7 @@
         <div class="form-group">
 
         <label for="role">Role ID</label>
-        <input type="number" name="role_id" value="2" class="form-control mb-5" id="role">
+        {{ Form::select('role_id', $roles , $user->role_id, ['class' => 'form-control', 'id' => 'role']) }}
         </div>
         <div class="form-group">
 

@@ -30,6 +30,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::resource('products', ProductController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('companies', CompanyController::class);
@@ -38,3 +39,14 @@ Route::resource('loans', LoanController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('brands', BrandController::class);
 Route::resource('users', UserController::class);
+
+
+Route::get(
+    'auth/change_password/{user}',
+    '\App\Http\Controllers\Auth\ChangePasswordController@edit'
+)->name('change_password.edit');
+
+Route::post(
+    'auth/change_password/{user}',
+    '\App\Http\Controllers\Auth\ChangePasswordController@update'
+)->name('change_password.update');

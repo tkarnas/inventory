@@ -19,18 +19,12 @@
         <div class="form-group">
 
         <label for="company">Company ID</label>
-        <input type="number" name="company_id" value="{{ $product->company_id }}" class="form-control mb-5" id="company">
-        @if ($errors->has('company_id'))
-            <span class="text-danger">{{ $errors->first('company_id') }}</span>
-        @endif
+        {{ Form::select('company_id', $companies , $product->company_id, ['class' => 'form-control', 'id' => 'company']) }}
         </div>
         <div class="form-group">
 
         <label for="category">Category ID</label>
-        <input type="number" name="category_id" value="{{ $product->category_id }}" class="form-control mb-5" id="category">
-        @if ($errors->has('category_id'))
-            <span class="text-danger">{{ $errors->first('category_id') }}</span>
-        @endif
+        {{ Form::select('category_id', $categories , $product->category_id, ['class' => 'form-control', 'id' => 'category']) }}
         </div>
         <div class="form-group">
 
@@ -59,10 +53,7 @@
         <div class="form-group">
 
         <label for="brand">Brand ID</label>
-        <input type="number" name="brand_id" value="{{ $product->brand_id }}" class="form-control mb-5" id="brand">
-        @if ($errors->has('brand_id'))
-            <span class="text-danger">{{ $errors->first('brand_id') }}</span>
-        @endif
+        {{ Form::select('brand_id', $brands , $product->brand_id, ['class' => 'form-control', 'id' => 'brand']) }}
         </div>
       
         <div class="form-group">

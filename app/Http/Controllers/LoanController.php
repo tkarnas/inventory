@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loan;
+use App\Models\User;
+use App\Models\Product;
 
 class LoanController extends Controller
 {
@@ -69,7 +71,10 @@ class LoanController extends Controller
     public function edit($id)
     {
         $loan = Loan::findOrFail($id);
-        return view('loans.edit', compact('loan'));
+        $users = User::pluck('username', 'id');
+        $products = Product::pluck('product_name', 'id');
+
+        return view('loans.edit', compact('loan', 'users', 'products'));
     }
 
     /**

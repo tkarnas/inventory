@@ -11,6 +11,7 @@
         <li>Role: {{$user->role_id}}</li>
     </ul>
 
-    <a href="{{route('users.index')}}" class="btn btn-outline-danger">Back to users</a>
+    <a href="{{route('users.index')}}" class="btn btn-outline-warning">Back to users</a>
+    
 </div>
 @endsection

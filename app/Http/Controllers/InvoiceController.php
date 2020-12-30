@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Invoice;
+use App\Models\Company;
+use App\Models\Product;
 
 class InvoiceController extends Controller
 {
@@ -70,7 +72,9 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         $invoice = Invoice::findOrFail($id);
-        return view('invoices.edit', compact('invoice'));
+        $companies = Company::pluck('company_name', 'id');
+        $products = Product::pluck('product_name', 'id');
+        return view('invoices.edit', compact('invoice', 'companies', 'products'));
     }
 
     /**

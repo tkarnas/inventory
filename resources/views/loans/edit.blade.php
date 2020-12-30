@@ -32,17 +32,11 @@
         </div>
         <div class="form-group">
         <label for="user_id">User ID</label>
-        <input type="number" name="user_id" value="{{ $loan->user_id }}" class="form-control" id="user_id">
-        @if ($errors->has('user_id'))
-            <span class="text-danger">{{ $errors->first('user_id') }}</span>
-        @endif
+        {{ Form::select('user_id', $users , $loan->user_id, ['class' => 'form-control', 'id' => 'user_id']) }}
         </div>
         <div class="form-group">    
         <label for="product_id">Product ID</label>
-        <input type="number" name="product_id" value="{{ $loan->product_id }}" class="form-control mb-5" id="product_id">
-        @if ($errors->has('product_id'))
-            <span class="text-danger">{{ $errors->first('product_id') }}</span>
-        @endif
+        {{ Form::select('product_id', $products , $loan->product_id, ['class' => 'form-control', 'id' => 'product_id']) }}
         </div>
         <div class="form-group">
         <button type="submit" class="btn btn-primary float-right">Save</button>
