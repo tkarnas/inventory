@@ -21,13 +21,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $name = request('name');
+Route::middleware(['auth'])->group(function(){
 
-    return view('welcome', [
-        'name' => $name
-    ]);
-});
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
 
 
@@ -40,13 +38,6 @@ Route::resource('categories', CategoryController::class);
 Route::resource('brands', BrandController::class);
 Route::resource('users', UserController::class);
 
+});
 
-Route::get(
-    'auth/change_password/{user}',
-    '\App\Http\Controllers\Auth\ChangePasswordController@edit'
-)->name('change_password.edit');
-
-Route::post(
-    'auth/change_password/{user}',
-    '\App\Http\Controllers\Auth\ChangePasswordController@update'
-)->name('change_password.update');
+require __DIR__.'/auth.php';
