@@ -109,6 +109,9 @@ class LoanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Loan::destroy($id);
+
+        /* nakon brisanja, napravi redirect na index stranicu */
+        return redirect()->route('loans.index');
     }
 }

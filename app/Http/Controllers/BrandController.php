@@ -97,6 +97,9 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Brand::destroy($id);
+
+        /* nakon brisanja, napravi redirect na index stranicu */
+        return redirect()->route('brands.index');
     }
 }

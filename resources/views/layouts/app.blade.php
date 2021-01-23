@@ -77,11 +77,11 @@ $currentUser = \Auth::user();
 
     <div class="container">
 
-<!-- @if (session('success'))
+@if (session('success'))
     <div class="alert alert-success mt-5">
         {{ session('success') }}
     </div>
-@endif -->
+@endif
 
 
 </div>
@@ -94,7 +94,7 @@ $currentUser = \Auth::user();
     
 
     <style>
-        /* temporarily here */
+       
         body { padding-bottom: 10vh; }
         footer {
             left: 0;
@@ -105,7 +105,7 @@ $currentUser = \Auth::user();
     </style>
 
     <script>
-        /* temporarily here */
+        
         function areYouSure(ev) {
             if(confirm('Are you sure you?')){
                 return true;
@@ -115,7 +115,7 @@ $currentUser = \Auth::user();
         }
     </script>
     <footer class="bg-light w-100 text-center position-fixed pt-3">
-        <small>Powered by <a href="https://www.google.com/search?q=zapravo prevara" target="_blank">Nije prevara d.o.o.</a></small>
+        <small>Created by <a href="https://github.com/tkarnas" target="_blank">tkarnas</a> &copy;</small>
     </footer>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

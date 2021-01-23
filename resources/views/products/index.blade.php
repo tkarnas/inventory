@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@php
+$loggedInUser = \Auth::user();
+@endphp
+
 
 @section('content')
 
@@ -33,10 +37,14 @@
             <td>{{ $product->company->company_name}}</td>
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('products.show', ['product' => $product->id])}}">Details</a>
+                @if($loggedInUser->isAdmin())
                 <a class="btn btn-outline-dark" href="{{ route('products.edit', ['product' => $product->id])}}">Edit</a>
+                @endif
             </td>
         </tr>
         @endforeach
+
+        
 
     </tbody>
 </table>

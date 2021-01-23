@@ -88,15 +88,14 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'username' => 'required|max:20',
-            'role_id' => ''
+            'role_id' => 'required'
         ]);
         $user = User::findOrFail($id);
         $user->fill($validated);
         $user->save();
 
-        return view('users.show', compact('user'));
+        return redirect()->route('users.show', ['user' => $user->id]);
     }
 
     /**
@@ -107,6 +106,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        /* nakon brisanja, napravi redirect na index stranicu */
+        return redirect()->route('users.index');
     }
 }

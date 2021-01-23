@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@php
+$loggedInUser = \Auth::user();
+@endphp
+
 
 @section('content')
 <a class="btn btn-primary mt-5" href="{{route('users.create')}}">Add new user</a>
@@ -26,8 +30,9 @@
             <td>{{ $user->role->role_name}}</td>
             <td>
                 <a class="btn btn-outline-dark" href="{{ route('users.show', ['user' => $user->id])}}">Details</a>
+                @if($loggedInUser->isAdmin() || $user->id === $loggedInUser->id)
                 <a class="btn btn-outline-dark" href="{{ route('users.edit', ['user' => $user->id])}}">Edit</a>
-                <a class="btn btn-outline-danger" href="{{ route('change_password.edit', ['user' => $user->id])}}">Change password</a>
+                @endif
             </td>
         </tr>
         @endforeach

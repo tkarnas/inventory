@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@php
+$loggedInUser = \Auth::user();
+@endphp
+
 
 @section('content')
 <div>
@@ -13,7 +17,19 @@
         <li>Brand: {{ $product->brand->brand_name }}</li>
         <li>Category: {{ $product->category->category_name }}</li>
     </ul>
+    <div>
+    <a href="{{route('products.index')}}" class="btn btn-outline-warning">Back to products</a>
 
-    <a href="{{route('products.index')}}" class="btn btn-outline-danger">Back to products</a>
+    @if($loggedInUser->isAdmin())
+    
+    <form class="form-inline" action="{{ route('products.destroy', ['product' => $product->id]) }}" method="POST">
+        <!-- CSRF token -->
+        @csrf
+        @method('DELETE')
+        <button type="submit" onclick="areYouSure(event)" class="btn btn-danger">Delete</button>
+    </form>
+    @endif
+    </div>
+    
 </div>
 @endsection

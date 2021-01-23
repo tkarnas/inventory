@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@php
+$loggedInUser = \Auth::user();
+@endphp
+
 @section('content')
 <div>
     <h3 class="mt-7">Loan details</h3>
@@ -16,5 +20,13 @@
     </ul>
 
     <a href="{{route('loans.index')}}" class="btn btn-outline-danger">Back to Loans</a>
+    @if($loggedInUser->isAdmin())
+        <form class="form-inline" action="{{ route('loans.destroy', ['loan' => $loan->id]) }}" method="POST">
+            <!-- CSRF token -->
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="areYouSure(event)" class="btn btn-danger">Delete</button>
+        </form>
+    @endif
 </div>
 @endsection

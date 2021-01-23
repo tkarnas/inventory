@@ -47,11 +47,7 @@
             <span class="text-danger">{{ $errors->first('username') }}</span>
         @endif
         </div>
-        <div class="form-group">
-
-        <label for="role">Role ID</label>
-        <input type="number" name="role_id" value="2" class="form-control mb-5" id="role" disabled>
-        </div>
+    
         <div class="form-group">
 
         <button type="submit" class="btn btn-primary float-right">Save</button>

@@ -19,15 +19,15 @@ class CompanySeeder extends Seeder
 
         DB::table('companies')->insert([
             [
-                'company_name' => Str::random(10),
+                'company_name' => 'Combis',
                 'vat_number' => rand(10, 100)
             ],
             [
-                'company_name' => Str::random(10),
+                'company_name' => 'HT logistika',
                 'vat_number' => rand(10, 100)
             ],
             [
-                'company_name' => Str::random(10),
+                'company_name' => 'Samsung',
                 'vat_number' => rand(10, 100)
             ]
         ]);

@@ -101,6 +101,9 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::destroy($id);
+
+        /* nakon brisanja, napravi redirect na index stranicu */
+        return redirect()->route('companies.index');
     }
 }
